@@ -1,4 +1,4 @@
-/* ====== RESET ====== */
+/* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
@@ -15,19 +15,19 @@ body {
   align-items: center;
 }
 
-/* ====== CONTAINER ====== */
+/* ===== CONTAINER ===== */
 .app-container {
   background: white;
   padding: 2.5rem;
   border-radius: 1.5rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   width: 100%;
   max-width: 400px;
   transition: box-shadow 0.3s ease;
 }
 
 .app-container:hover {
-  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
 }
 
 h2 {
@@ -38,29 +38,41 @@ h2 {
   color: #111827;
 }
 
-label {
-  display: block;
-  font-size: 0.9rem;
-  color: #6b7280;
-  margin-bottom: 0.5rem;
+/* ===== INPUTS COM SÍMBOLO $ ===== */
+.input-group {
+  margin-bottom: 1.25rem;
 }
 
-input {
+.currency-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.currency-symbol {
+  position: absolute;
+  left: 1rem;
+  color: #6b7280;
+  font-size: 1rem;
+  pointer-events: none; /* evita interferir no clique */
+}
+
+.currency-field input {
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1rem 0.75rem 2rem; /* espaço à esquerda para o símbolo $ */
   font-size: 1rem;
   border: 1px solid #e5e7eb;
   border-radius: 0.75rem;
-  margin-bottom: 1.25rem;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-input:focus {
+.currency-field input:focus {
   outline: none;
   border-color: #a5b4fc;
-  box-shadow: 0 0 0 3px rgba(165,180,252,0.4);
+  box-shadow: 0 0 0 3px rgba(165, 180, 252, 0.4);
 }
 
+/* ===== BOTÃO ===== */
 button {
   width: 100%;
   background-color: #6366f1;
@@ -83,15 +95,24 @@ button:active {
   transform: translateY(1px);
 }
 
-#total {
+
+/* ===== RESULTADO ===== */
+#result-container {
   text-align: center;
   margin-top: 1.5rem;
-  font-size: 1.1rem;
-  font-weight: 500;
+}
+
+#total {
+  font-size: 1.2rem;
+  font-weight: 600;
   color: #111827;
+  background-color: #eef2ff;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  display: inline-block;
   opacity: 0;
   transform: translateY(10px);
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 #total.show {
